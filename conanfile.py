@@ -40,7 +40,7 @@ class ValgrindConan(ConanFile):
         autotools = AutoToolsBuildEnvironment(self)
         autotools.configure(configure_dir=self._package_name,
             args=["--enable-lto=yes",
-                "--enable-only64bit" if self.settings.arch == "x86_64" else ""
+                "--enable-only64bit" if self.settings.arch_build == "x86_64" else ""
             ])
         autotools.make()
         autotools.install()
